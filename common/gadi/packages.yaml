@@ -49,6 +49,14 @@ packages:
       prefix: /apps/openmpi/4.1.3
       modules: [openmpi/4.1.3]
     - spec: openmpi@4.1.5
+    #- spec: openmpi@4.1.5 %intel
       prefix: /apps/openmpi/4.1.5
+      extra_attributes:
+        environment:
+          # Tried and failed:
+          #   https://github.com/MetOffice/ngmo-environments/pull/3/files
+          # https://spack.readthedocs.io/en/latest/configuration.html#environment-modifications
+          prepend_path:
+            CMAKE_PREFIX_PATH: /apps/openmpi/4.1.5/include/Intel
       modules: [openmpi/4.1.5]
     buildable: false
